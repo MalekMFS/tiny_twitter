@@ -2,30 +2,18 @@
 <html>
   <head>
   	<title><%= full_title(yield(:title)) %></title>
+  	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.2.0-rc2/css/bootstrap-rtl.css">
   	<%= stylesheet_link_tag    'application', media: 'all',
   											 'data-turbolinks-track' => true %>
   	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   	<%= csrf_meta_tags %>
-  	<!--[if lt IE 9]>
-  		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-  		</script>
-  	 <![endif]-->
+  	<%= render partial: 'layouts/shim' %>
   </head>
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse" id="header">
-    	<div class="container">
-    		<%= link_to "برنامه موقت", '#', id: "logo" %>
-    		<nav>
-    			<ul class="nav navbar-nav navbar-left">
-    				<li><%= link_to "خانه",   '#' %></li>
-    				<li><%= link_to "راهنما"  , '#' %></li>
-    				<li><%= link_to "ورود", '#' %></li>
-    			</ul>
-    		</nav>
-    	</div>
-    </header>
+    <%= render partial: 'layouts/header' %>
     <div class="container">
     	<%= yield %>
+      <%= render partial:'layouts/footer'%>
     </div>
   </body>
 </html>
