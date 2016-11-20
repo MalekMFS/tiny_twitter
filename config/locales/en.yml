@@ -20,4 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        password: "Password"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "رمز عبور نمی تواند خالی باشد"
+            password_confirmation:
+              confirmation: "رمز عبور با تکرار برابر نیست!"
