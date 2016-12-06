@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "به برنامه موقت خوش آمدید."
+      log_in @user
+      flash[:success] = "به #{$APP_NAME} خوش آمدید."
       redirect_to @user
     else
       render 'new'

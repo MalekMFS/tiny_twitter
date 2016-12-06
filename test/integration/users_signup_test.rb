@@ -18,12 +18,14 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   test "valid signup information" do
     get signup_path
     assert_difference 'User.count', 1 do #should have 1 difference
-      post_via_redirect users_path, user: {name:  "example User",      #follow redirect (to assert_template pass)
-                                           email: "user@valid.us",
-                                           password:              "password",
-                                           password_confirmation: "password"}
+    post users_path, user: {name:  "example User",
+                                         email: "user@valid.us",
+                                         password:              "password",
+                                         password_confirmation: "password"}
+    follow_redirect! #follow redirect (to assert_template pass)
     end
     assert_template 'users/show'
+    assert is_logged_in?                   #check test_helper
     assert_not_nil flash                #assert_not flash.nil?
   end
 end
