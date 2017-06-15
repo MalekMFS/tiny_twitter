@@ -11,21 +11,22 @@ class User < ActiveRecord::Base
 	has_secure_password validation: false
 	validates :password, length: { minimum: 6, message: "رمز عبور باید حداقل ۶ نویسه باشد." }
 
+	#equal to User.new_token #User.digest(string)  and self.new_token #self.digest(string)
+	class << self
+		#Returns the hash digest of the given string.
+		#need for testing
+		def digest(string)
+			#https://github.com/rails/rails/blob/master/activemodel/lib/active_model/secure_password.rb
+			cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+																										BCrypt::Engine.cost
+			BCrypt::Password.create(string, cost: cost)
+		end
 
-	#Returns the hash digest of the given string.
-	#need for testing
-	def User.digest(string)
-		#https://github.com/rails/rails/blob/master/activemodel/lib/active_model/secure_password.rb
-		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-																									BCrypt::Engine.cost
-		BCrypt::Password.create(string, cost: cost)
+		#Returns a random token.
+		def new_token
+			SecureRandom.urlsafe_base64
+		end
 	end
-
-	#Returns a random token.
-	def User.new_token
-		SecureRandom.urlsafe_base64
-	end
-
 	#use like @current_user.remember
 	def remember
 		#remember_token is virtual attribute
