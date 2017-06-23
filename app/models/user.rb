@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 										 format: {with: VALID_EMAIL_REGEX, message: "پست الکترونیک نامعتبر است."},
 										 uniqueness: {case_sensitive: false, message: "پست الکترونیک قبلاْ استفاده شده است."}
 	has_secure_password validation: false
-	validates :password, length: { minimum: 6, message: "رمز عبور باید حداقل ۶ نویسه باشد." }
+	validates :password, length: { minimum: 6,
+																 message: "رمز عبور باید حداقل ۶ نویسه باشد." }, allow_blank: true
 
 	#equal to User.new_token #User.digest(string)  and self.new_token #self.digest(string)
 	class << self

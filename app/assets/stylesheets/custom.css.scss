@@ -166,6 +166,7 @@ input {
 		color: $state-danger-text;
 	}
 }
+//used funky radio for remember me
 // .checkbox {
 // 	margin-top: -10px;
 // 	margin-bottom: 10px;
@@ -177,4 +178,15 @@ input {
 // #session_remember_me {
 // 	width: auto;
 // 	margin-left: 0;
-// }
+//}
+
+/* Users index */
+.users {
+	list-style: none;
+	margin: 0;
+	li{
+		overflow: auto;
+		padding: 10px 0;
+		border-bottom: 1px solid $gray-lighter;
+	}
+}

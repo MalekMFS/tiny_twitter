@@ -1,5 +1,5 @@
-<% provide(:title, 'ثبت نام') %>
-<h1>ثبت نام</h1>
+<% provide(:title, 'ویرایش نمایه') %>
+<h1>نمایه خود را ویرایش کنید</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
@@ -17,7 +17,11 @@
       <%= f.label :password_confirmation, "تکرار" %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
 
-      <%= f.submit "اکانتم را بساز!", class:"btn btn-primary" %>
+      <%= f.submit "ثبت تغییرات", class:"btn btn-primary" %>
     <% end %>
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %> <!--#users_helper -->
+      <a href="http://gravatar.com/emails" target="_blank">تغییر</a>
+    </div>
   </div>
 </div>

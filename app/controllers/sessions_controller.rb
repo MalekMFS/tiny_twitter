@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
       log_in @user
       #using Helper
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-      redirect_to @user
+      #check session_helper
+      redirect_back_or @user
     else
       #flash.now works with rendering (when no redirect)
       flash.now[:danger]  = "ترکیب پست الکترونیک/رمز عبور نامعتبر است."
@@ -21,6 +22,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?  #Prevent error. if user logged out already
+    #TODO some message or stuff here
     redirect_to root_url
   end
 end
