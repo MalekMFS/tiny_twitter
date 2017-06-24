@@ -4,12 +4,11 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :email, "پست الکترونیک" %>
-      <%= f.text_field :email, class: "form-control" %>
+        <%= f.label :email, "پست الکترونیک" %>
+        <%= f.text_field :email, class: "form-control" %>
 
-      <%= f.label :password, "رمز عبور" %>
-      <%= f.password_field :password, class: "form-control" %>
-
+        <%= f.label :password, "رمز عبور" %>
+        <%= f.password_field :password, class: "form-control" %>
 
           <div class="funkyradio col-lg-5 pull-right">
             <div class="funkyradio-info">

@@ -1,13 +1,13 @@
 <%= render partial: "shared/error_messages" %>
 
 <%= f.label :name, "نام" %>
-<%= f.text_field :name, class: "form-control" %>
+<%= f.text_field :name, class: "form-control", placeholder: "محمد محمدی" %>
 
 <%= f.label :email, "پست الکترونیک" %>
-<%= f.text_field :email, class: "form-control" %>
+<%= f.text_field :email, class: "form-control", placeholder: "folan@bisar.ir" %>
 
 <%= f.label :password, "رمز عبور" %>
-<%= f.password_field :password, class: "form-control" %>
+<%= f.password_field :password, class: "form-control", placeholder: "(حداقل ۶ نویسه)" %>
 
 <%= f.label :password_confirmation, "تکرار" %>
-<%= f.password_field :password_confirmation, class: "form-control" %>
+<%= f.password_field :password_confirmation, class: "form-control", placeholder: "(تکرار رمز عبور)" %>
