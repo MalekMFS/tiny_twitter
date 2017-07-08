@@ -2,6 +2,10 @@ require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
 
+def setup
+  #for valid signup information
+  ActionMailer::Base.deliveries.clear
+end
   test "invalid signup information" do
     get signup_path
     assert_no_difference 'User.count' do
@@ -22,8 +26,26 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          email: "user@valid.us",
                                          password:              "password",
                                          password_confirmation: "password"}
-    follow_redirect! #follow redirect (to assert_template pass)
     end
+    assert_equal 1, ActionMailer::Base.deliveries.size
+    #NOTE assigns lets us access instance variables in the corresponding action.
+    #For example, the Users controller’s create action defines an @user variable
+    user = assigns(:user)
+    assert_not user.activated?
+    #Try to log in before activation.
+    log_in_as(user)
+    assert_not is_logged_in?
+    #Invalid activation token
+    get edit_account_activation_path("invalid token")
+    assert_not is_logged_in?
+    #Valid token, wrong email
+    get edit_account_activation_path(user.activation_token, email: "wrong")
+    assert_not is_logged_in?
+    #Valid activation token
+    get edit_account_activation_path(user.activation_token, email: user.email)
+    assert user.reload.activated?
+
+    follow_redirect! #follow redirect (to assert_template pass)
     assert_template 'users/show'
     assert is_logged_in?                   #check test_helper
     assert_not_nil flash                #assert_not flash.nil?

@@ -1,0 +1,5 @@
+سلام <%= @user.name %>،
+به <%= $APP_NAME %> خوش آمدید!
+از طریق پیوند زیر حساب کاربری خود را فعال کنید:
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

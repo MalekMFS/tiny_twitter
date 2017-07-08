@@ -1,0 +1,11 @@
+<h1><%= $APP_NAME %></h1>
+<p>
+  سلام  <%= @user.name %>،
+</p>
+<p>
+  به <%= $APP_NAME %> خوش آمدید!
+  از طریق پیوند زیر حساب کاربری خود را فعال کنید:
+</p>
+<b><%= link_to "فعال شو!", edit_account_activation_url(@user.activation_token,
+                                                     email: @user.email) %>
+</b> 

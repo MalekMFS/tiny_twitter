@@ -2,6 +2,7 @@
 <html>
   <head>
   	<title><%= full_title(yield(:title)) %></title>
+    <!-- TODO don't use cdn -->
   	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.2.0-rc2/css/bootstrap-rtl.css">
   	<%= stylesheet_link_tag    'application', media: 'all',
   											 'data-turbolinks-track' => true %>
@@ -20,7 +21,9 @@
       <% end %>
     	<%= yield %>
       <%= render partial:'layouts/footer'%>
-      <%= debug(params) if Rails.env.development? %>
+      <div dir="ltr">
+        <%= debug(params) if Rails.env.development? %>
+      </div>
     </div>
   </body>
 </html>

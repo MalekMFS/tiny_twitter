@@ -18,9 +18,9 @@
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = "به #{$APP_NAME} خوش آمدید."
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = "جهت فعال سازی حساب کاربری به پست الکترونیک خود مراجعه کنید."
+      redirect_to root_url
     else
       render 'new'
     end
