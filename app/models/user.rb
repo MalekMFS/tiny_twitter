@@ -50,8 +50,7 @@ class User < ActiveRecord::Base
 
 	#Activates an account.
 	def activate
-		toggle!(:activated) #TODO improve: 2 update queries to one
-		update_attribute(:activated_at, Time.zone.now)
+		update_columns(activated_at: Time.zone.now, activated: true)
 	end
 	def send_activation_email
     UserMailer.account_activation(self).deliver_now

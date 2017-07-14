@@ -4,7 +4,7 @@
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.all.paginate(page: params[:page], per_page: 30)
+    @users = User.where(activated: true).paginate(page: params[:page], per_page: 30)
   end
   def new
     @user = User.new
@@ -12,7 +12,7 @@
 
   def show
     @user = User.find(params[:id])
-    #debugger
+    redirect_to root_url unless @user.activated?
   end
 
   def create

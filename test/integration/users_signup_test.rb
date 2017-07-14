@@ -19,6 +19,7 @@ end
     assert_select 'div.field_with_errors'
   end
 
+
   test "valid signup information" do
     get signup_path
     assert_difference 'User.count', 1 do #should have 1 difference
@@ -35,6 +36,19 @@ end
     #Try to log in before activation.
     log_in_as(user)
     assert_not is_logged_in?
+    ###don't show unactivated users###
+    # Index page
+    # Log in as valid user.
+    log_in_as(users(:one))
+    # Unactivated user is on the second page
+    get users_path, page: 2
+    assert_no_match user.name, response.body
+    # Profile page
+    get user_path(user)
+    assert_redirected_to root_url
+    # Log out valid user.
+    delete logout_path
+    ##################################
     #Invalid activation token
     get edit_account_activation_path("invalid token")
     assert_not is_logged_in?
