@@ -37,4 +37,20 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'a', text: 'حذف', count: 0
   end
 
+
+  test "micropost sidebar count" do
+    log_in_as(@user)
+    get root_path
+    assert_match "#{@user.microposts.count} پست", response.body
+    #user with zero microposts
+    other_user = users(:mallory)
+    log_in_as(other_user)
+    get root_path
+    assert_match "0 پست", response.body
+    #Create micropost
+    other_user.microposts.create!(content: "یه پیغام")
+    get root_path
+    assert_match "1 پست", response.body
+  end
+
 end
