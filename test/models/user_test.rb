@@ -55,10 +55,10 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email addresses should be saved as lower-case" do
-	mixed_case_email = "Foo@ExAMPle.CoM"
-	@user.email = mixed_case_email
-	@user.save
-	assert_equal mixed_case_email.downcase, @user.reload.email
+  	mixed_case_email = "Foo@ExAMPle.CoM"
+  	@user.email = mixed_case_email
+  	@user.save
+  	assert_equal mixed_case_email.downcase, @user.reload.email
 	end
 
   test "password should have a minimum length" do
@@ -69,6 +69,14 @@ class UserTest < ActiveSupport::TestCase
   test "authenticated? should return false for a user with nil digest" do
     #@user's digest field is nil & Dosn't matter how
     assert_not @user.authenticated?(:remember,'')
+  end
+
+  test "associated microposts should be destroyed" do
+    @user.save
+    @user.microposts.create!(content:"سلام چطوری")
+    assert_difference 'Micropost.count', -1 do
+      @user.destroy
+    end
   end
 
 end

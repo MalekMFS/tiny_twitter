@@ -12,6 +12,7 @@
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
     redirect_to root_url unless @user.activated?
   end
 
@@ -54,14 +55,6 @@
     end
 
     # before field_with_errors
-    # Confirm a logged in users
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "لطفاً وارد شوید!"
-        redirect_to login_url
-      end
-    end
     #confirm the correct user
     def correct_user
       @user = User.find(params[:id])
