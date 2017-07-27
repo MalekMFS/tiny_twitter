@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: example
+  name: ناصر
   email: example@example.com
   password_digest: <%= User.digest('password') %>
   admin: true
@@ -9,35 +9,35 @@ one:
   activated_at: <%= Time.zone.now %>
 
 two:
-  name: example2
+  name: حسن
   email: example2@example2.gov
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
 
 michael:
-  name: Michael Example
+  name: جعفر
   email: michael@example.com
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
 
 archer:
-  name: Sterling Archer
+  name: البرز
   email: duchess@example.gov
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
 
 lana:
-  name: Lana Kane
+  name: مصیب
   email: hands@example.gov
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
 
 mallory:
-  name: Mallory Archer
+  name: رضا
   email: boss@example.gov
   password_digest: <%= User.digest('password') %>
   activated: true
@@ -45,7 +45,7 @@ mallory:
 
 <% 30.times do |n| %>
 user_<%= n %>:
-  name: <%= "User #{n}" %>
+  name: <%= "ممد #{n}" %>
   email: <%= "user-#{n}@example.com" %>
   password_digest: <%= User.digest('password') %>
   activated: true

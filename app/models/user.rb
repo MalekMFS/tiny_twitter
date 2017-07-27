@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
 	before_save :downcase_email
 	before_create :create_activation_digest
 
-	validates :name, presence: {message: "نام نمی تواند خالی باشد."}, length: { maximum: 50, message:"نام می تواند حداکثر ۵۰ نویسه باشدs" }
+	#VALID_FARSI_REGEX = /\A[اآبپتثئجچحخدذرزژسشصضطظعغفقکگلمنوهیءأؤّ\s]+\z/
+	validates :name, presence: {message: "نام نمی تواند خالی باشد."}, length: { maximum: 50, message:"نام می تواند حداکثر ۵۰ نویسه باشدs" }#,format: {with: VALID_FARSI_REGEX, message: "نام باید فارسی باشد."}
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i                                                     #Also includes Uniqueness: true
 	validates :email, presence: {message: "پست الکترونیک نمی تواند خالی باشد."},
 										length: { maximum: 255, message: "پست الکترونیک می تواند حداکثر ۲۵۵ نویسه باشد." },
