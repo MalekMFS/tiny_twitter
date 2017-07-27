@@ -22,7 +22,16 @@ gem 'sdoc',                    '0.4.0', group: :doc
 group :development do
   gem 'sqlite3', '1.3.12'
   gem 'byebug',  '9.0.0', platform: :mri
-  gem 'web-console',           '3.1.1'
+  gem 'web-console', '>= 3.3.0'
+  gem 'capistrano', '~> 3.7', '>= 3.7.1'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv', '~> 2.1'
+  gem 'capistrano-nginx'
+  gem 'capistrano-rails-db'
+  gem 'capistrano-rails-console'
+  gem 'capistrano-upload-config'
+  gem 'sshkit-sudo'
 end
 
 group :development, :test do

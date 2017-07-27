@@ -16,6 +16,13 @@
 !/log/.keep
 /tmp
 
+# Ignore Byebug command history file.
+.byebug_history
+
+#ignore database, secrets
+/config/database.yml
+/config/secrets.yml
+
 # Ignore Spring files.
 /spring/*.pid
 

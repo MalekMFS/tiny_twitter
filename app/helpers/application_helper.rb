@@ -1,6 +1,6 @@
 module ApplicationHelper
 	#sets Global app's name
-	$APP_NAME = "گروه نرم افزاری میم"
+	$APP_NAME = "میم لینک"
 
 	#return full title
 	def full_title(page_title = '')

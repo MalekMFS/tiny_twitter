@@ -2,13 +2,48 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
 #Users
-User.create!(name: "عماد عطالهی",
-             email: "emadataolahi@yahoo.com",
+User.create!(name: "محمدرضا",
+             email: "mohammadreza@meam.ir",
              password:              "123456",
              password_confirmation: "123456",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
+User.create!(name: "محسن",
+            email: "mohsen@meam.ir",
+            password:              "123456",
+            password_confirmation: "123456",
+            admin: true,
+            activated: true,
+            activated_at: Time.zone.now)
+User.create!(name: "مهدی",
+           email: "mahdi@meam.ir",
+           password:              "123456",
+           password_confirmation: "123456",
+           admin: true,
+           activated: true,
+           activated_at: Time.zone.now)
+User.create!(name: "جواد",
+          email: "javad@meam.ir",
+          password:              "123456",
+          password_confirmation: "123456",
+          admin: true,
+          activated: true,
+          activated_at: Time.zone.now)
+User.create!(name: "محمد",
+         email: "mohammad@meam.ir",
+         password:              "123456",
+         password_confirmation: "123456",
+         admin: true,
+         activated: true,
+         activated_at: Time.zone.now)
+User.create!(name: "احسان",
+        email: "ehsan@meam.ir",
+        password:              "123456",
+        password_confirmation: "123456",
+        admin: true,
+        activated: true,
+        activated_at: Time.zone.now)
 99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n}@railstutorial.org"
