@@ -14,3 +14,15 @@
  *= require bootstrap-rtl
  *= require_self
  */
+
+@media only screen and (min-width : 320px) {
+    .logo-orginal-size{ display: none;  }
+}
+@media only screen and (min-width : 480px) {
+    .logo-orginal-size{ display: none;  }
+}
+@media only screen and (min-width : 992px) {
+    .logo-orginal-size{ display: block;  }
+    .logo-phone-size{display: none; }
+}
+
