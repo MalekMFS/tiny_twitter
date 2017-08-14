@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
 
   def new
     #redirect option to previous page after login
-    @user = User.new
   end
 
   def create
