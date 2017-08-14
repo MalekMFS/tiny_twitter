@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
   def new
     #redirect option to previous page after login
+    @user = User.new
   end
 
   def create
@@ -12,7 +13,7 @@ class SessionsController < ApplicationController
         log_in @user
         #using Helper
         params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-        #check session_helper
+        #check session_helper for this
         redirect_back_or @user
       else
         message  = "حساب کاربری فعال نشده است! "
