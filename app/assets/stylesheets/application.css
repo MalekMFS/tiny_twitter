@@ -25,4 +25,12 @@
     .logo-orginal-size{ display: block;  }
     .logo-phone-size{display: none; }
 }
-
+@font-face {
+        font-family: 'abasan';
+        src:        url('Abasan.eot');
+        src:        url('Abasan.woff') format('woff'),
+                    url('Abasan.ttf') format('truetype'),
+                    url('Abasan.svg') format('svg');
+        font-weight: normal;
+        font-style: normal;
+        }
