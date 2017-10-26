@@ -8,6 +8,16 @@
   	<%= csrf_meta_tags %>
   	<%= render partial: 'layouts/shim' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108725762-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-108725762-1');
+    </script>
+
     <script>
       (function(h,e,a,t,m,p) {
         m=e.createElement(a);m.async=!0;m.src=t;
