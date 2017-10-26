@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         #using Helper
         params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
         #check session_helper for this
-        redirect_back_or @user
+        redirect_back_or root_url
       else
         message  = "حساب کاربری فعال نشده است! "
         message += "جهت فعالسازی به پست الکترونیک خود مراجعه کنید. "
@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?  #Prevent error. if user logged out already
-    #TODO some message or stuff here
+    flash[:info] = "شما از سیستم خارج شدید. به امید دیدار!"
     redirect_to root_url
   end
 end
