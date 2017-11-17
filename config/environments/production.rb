@@ -69,7 +69,7 @@ Rails.application.configure do
       :user_name      => "noreply@meam.ir",
       :password       => "PPWBHS9m2d",
       # => :domain         => 'heroku.com',
-      :enable_starttls_auto => true
+      :enable_starttls_auto => true,
       openssl_verify_mode: OpenSSL::SSL::VERIFY_NONE
     }
 
